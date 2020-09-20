@@ -36,20 +36,26 @@ window.addEventListener("load", function() {
       copilot_status.addEventListener("submit", copilotstatusUpdate);
 
       if (fuellevelInput.value < 10000 === true) {
-         [this.style.faultyItems.visibility] = visible;
-         document.getElementById("fuelStatus").innerHTML = `${fuellevelInput.value} is not enough fuel for the journey.`
-         document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch.`
-         [this.style.launchStatus.color] = red;
+         function() {
+            $(this).css("faultyItems", visible);
+            document.getElementById("fuelStatus").innerHTML = `${fuellevelInput.value} is not enough fuel for the journey.`
+            document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch.`
+            document.getElementById("launchStatus").color = red;   
+         }
       } else if (cargomassInput.value > 10000 === true) {
-         [this.style.faultyItems.visibility] = visible;
-         document.getElementById("cargoStatus").innerHTML = `${cargomassInput.value} is too much mas for the shuttle to take off.`
-         document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch.`
-         [this.style.launchStatus.color] = red;
+         function() {
+            $(this).css("faultyItems", visible);
+            document.getElementById("cargoStatus").innerHTML = `${cargomassInput.value} is too much mass for the shuttle to take off.`
+            document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch.`
+            document.getElementById("launchStatus").color = red;
+         }
       } else {
-         document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch.`
-         [this.style.launchStatus.color] = green;
-      }
-     
+         function() {
+            document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch.`
+            document.getElementById("launchStatus").color = green;
+         }
+      };
+          
    });
 });
 
