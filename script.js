@@ -6,7 +6,7 @@ window.addEventListener("load", function() {
       let copilotnameInput = document.querySelector("input[name=copilotName]");
       let fuellevelInput = document.querySelector("input[name=fuelLevel]");
       let cargomassInput = document.querySelector("input[name=cargoMass]");
-      
+
       if (pilotnameInput.value === "" || copilotnameInput.value === "" || fuellevelInput.value === "" || cargomassInput.value === "") {
          alert("All fields are required!");
          event.preventDefault();
@@ -25,18 +25,18 @@ window.addEventListener("load", function() {
       document.getElementById("copilotStatus").innerHTML = `${copilotnameInput.value}`;
       
       if (fuellevelInput.value < 10000 === true) {
-         $(this).css("faultyItems", visible);
+         document.getElementById("faultyItems").style.visibility = visible;
          document.getElementById("fuelStatus").innerHTML = `${fuellevelInput.value} is not enough fuel for the journey.`
          document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch.`
-         document.getElementById("launchStatus").color = red;   
+         document.getElementById("launchStatus").style.color = red;   
       } else if (cargomassInput.value > 10000 === true) {
-         $(this).css("faultyItems", visible);
+         document.getElementById("faultyItems").style.visibility = visible;
          document.getElementById("cargoStatus").innerHTML = `${cargomassInput.value} is too much mass for the shuttle to take off.`
          document.getElementById("launchStatus").innerHTML = `Shuttle not ready for launch.`
-         document.getElementById("launchStatus").color = red;
+         document.getElementById("launchStatus").style.color = red;
       } else {
          document.getElementById("launchStatus").innerHTML = `Shuttle is ready for launch.`
-         document.getElementById("launchStatus").color = green;
+         document.getElementById("launchStatus").style.color = green;
       };
 
    });
